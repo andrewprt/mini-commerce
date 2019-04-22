@@ -1,0 +1,10 @@
+.cart--view {
+    display:flex;
+    flex-direction: column;
+    flex-grow: none;
+    max-width: 20rem;
+}
+
+.cart--view img {
+    height: 20rem;
+}

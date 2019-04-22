@@ -1,0 +1,10 @@
+.product--view {
+    display:flex;
+    flex-direction: column;
+    flex-grow: none;
+    max-width: 20rem;
+}
+
+.product--view img {
+    height: 20rem;
+}
