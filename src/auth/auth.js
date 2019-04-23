@@ -7,7 +7,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'dev-2-ynwy61.auth0.com',
         clientID: '90dQgCLc2NVIuCx4cp5jHEBE__2YotkJ',
-        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'http://localhost:3000/callback',
+        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://mini-commerce-eu0zzs58m.now.sh/callback',
         audience: 'https://dev-2-ynwy61.auth0.com/userinfo',
         responseType: 'token id_token',
         scope: 'openid'
