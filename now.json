@@ -1,12 +1,4 @@
 {
-    "builds": [
-        {
-            "src": "*.html",
-            "use": "@now/static"
-        },
-        {
-            "src": "date.js",
-            "use": "@now/node"
-        }
-    ]
+    "name": "mini-commerce",
+    "version": 2
 }
