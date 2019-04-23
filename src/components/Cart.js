@@ -13,12 +13,14 @@ const Cart = (props) => {
     const { id, name, desc, image, price } = props.product;
     const { onBtnAddClick } = props;
     return (
-        <div className="cart--view">
-            <img alt="product-cart" src={image} />
-            <div>{name}</div>
-            <div>{price}</div>
-            <div>{desc}</div>
-            <button onClick={() => setTotalPrice({ price: name, product: name })}>Add to Cart</button>
+        <div>
+            <div className="cart--view">
+                <img alt="product-cart" src={image} />
+                <div>{name}</div>
+                <div>{price}</div>
+                <div>{desc}</div>
+                <button onClick={() => setTotalPrice({ price: name, product: name })}>Remove from Cart</button>
+            </div>
         </div>
     )
 }

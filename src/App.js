@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import './App.css';
 import ProductList from './components/ProductList'
-import CartList from './components/CartList'
 
 const mapStateToProps = (state) => {
   return {
@@ -13,19 +10,33 @@ const mapStateToProps = (state) => {
 }
 
 class App extends Component {
+  login = () => {
+    this.props.auth.login();
+  }
+
+  logout = () => {
+    this.props.auth.logout();
+  }
+
   render() {
     const { totalPrice } = this.props;
+    const { isAuthenticated } = this.props.auth;
 
     return (
       <div className="container">
         <div className="header">{totalPrice}</div>
         <div className="content">
+          {
+            !isAuthenticated() &&
+            <a style={{ cursor: 'pointer' }} onClick={this.login}>Log In</a>
+          }
+          {
+            isAuthenticated() &&
+            <a style={{ cursor: 'pointer' }} onClick={this.logout}>Log Out</a>
+          }
           <ProductList />
         </div>
         <div className="footer">Footer</div>
-        <div className="cart">
-          <CartList />
-        </div>
       </div>
     );
   }
