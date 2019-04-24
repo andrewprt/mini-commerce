@@ -6,18 +6,18 @@ import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { addPrice } from './reducers'
+import { editCart } from './reducers'
 
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import CartPage from './components/CartPage'
+// import App from './App';
+// import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+// import CartPage from './components/CartPage'
 
 import Routes from './components/Routes';
 
 const logger = createLogger()
 
-const rootReducers = combineReducers({ addPrice })
+const rootReducers = combineReducers({ editCart })
 
 const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger))
 
@@ -37,6 +37,8 @@ const store = createStore(rootReducers, applyMiddleware(thunkMiddleware, logger)
 //         </div>
 //     </Router>
 // )
+
+sessionStorage.setItem('loggedIn', false)
 
 ReactDOM.render(
     <Provider store={store}>

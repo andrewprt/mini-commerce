@@ -1,18 +1,11 @@
 import React from 'react'
-import { connect } from 'react-redux';
 import CartList from './CartList'
-
-const mapStateToProps = (state) => {
-    return {
-        totalPrice: state.addPrice.totalPrice
-    }
-}
-
+import Header from './Header'
+import Footer from './Footer'
 
 class CartPage extends React.Component {
 
     render() {
-        const { totalPrice } = this.props;
         const btnStyle = {
             position: "absolute",
             color: "green",
@@ -22,15 +15,15 @@ class CartPage extends React.Component {
 
         return (
             <div className="container">
-                <div className="header">{totalPrice}</div>
+                <Header auth={this.props.auth} />
                 <div className="content">
                     <button style={btnStyle}>Checkout</button>
                     <CartList />
                 </div>
-                <div className="footer">Footer</div>
+                <Footer />
             </div>
         )
     }
 }
 
-export default connect(mapStateToProps)(CartPage);
+export default CartPage;

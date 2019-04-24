@@ -7,7 +7,7 @@ export default class Auth {
     auth0 = new auth0.WebAuth({
         domain: 'dev-2-ynwy61.auth0.com',
         clientID: '90dQgCLc2NVIuCx4cp5jHEBE__2YotkJ',
-        redirectUri: process.env.NODE_ENV === 'development' ? 'https://mini-commerce.andrewprt.now.sh/callback' : 'https://mini-commerce.andrewprt.now.sh/callback',
+        redirectUri: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/callback' : 'https://mini-commerce.andrewprt.now.sh/callback',
         audience: 'https://dev-2-ynwy61.auth0.com/userinfo',
         responseType: 'token id_token',
         scope: 'openid'
@@ -15,6 +15,7 @@ export default class Auth {
 
     login = () => {
         this.auth0.authorize();
+        localStorage.setItem('loggedIn', true)
     }
 
     // parses the result after authentication from URL hash
@@ -47,8 +48,10 @@ export default class Auth {
         localStorage.removeItem('access_token');
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
+        localStorage.setItem('loggedIn', false)
         // navigate to the home route
         history.replace('/');
+        window.location.reload();
     }
 
     // checks if the user is authenticated

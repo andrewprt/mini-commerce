@@ -27,6 +27,40 @@ html {
 
 .header {
   background-color: #add8e6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.header * {
+  margin: 0.5rem 1rem;
+}
+
+.logo {
+  background-image: url(https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6ki...6CrRdMkR3NwXs1M3EMoAJtlSUrhvtv...Pw7);
+  background-size: cover;
+  background-position: center center;
+  width: 160px;
+  height: 40px;
+  margin-right:auto;
+}
+
+.cart {
+  background-image: url(https://cdn2.mageplaza.com/media/shopify_appicons//1faeabde14214dfb782e66a6406c46a9.png);
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.price {
+  height: 32px;
+  line-height: 32px;
+  padding: 0 2rem 0 2rem;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
 }
 
 .content {
@@ -37,6 +71,10 @@ html {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+
+.content > div {
+  margin: .8rem;
 }
 
 .footer {

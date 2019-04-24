@@ -3,7 +3,7 @@ export const products = [
         id: 1,
         name: 'Leanne Graham',
         desc: 'Desc 1',
-        image: 'https://www.bookbaby.com/images/book-cover-design-basic.png',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEVL-m5O9WZv-t2mHB0f6vSZS5YSJoBkvbcdvbyWANYZM9LAh4',
         price: 12000
     },
     {

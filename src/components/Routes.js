@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, Router } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import Callback from '../components/Callback';
 import Auth from '../auth/auth';
 import history from '../auth/history';
@@ -28,14 +28,6 @@ const Routes = () => (
 
     <Router history={history} component={App}>
         <div>
-            <ul>
-                <li>
-                    <Link to="/">Home</Link>
-                </li>
-                <li>
-                    <Link to="/cart">Cart</Link>
-                </li>
-            </ul>
             <Route exact path="/" render={(props) => <App auth={auth} {...props} />} />
             <Route path="/cart" render={(props) => <CartPage auth={auth} {...props} />} />
             <Route path="/callback" render={(props) => {

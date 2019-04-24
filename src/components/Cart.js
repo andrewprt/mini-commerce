@@ -1,17 +1,17 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import './Cart.css'
-import { setTotalPrice } from '../actions';
+import { removeFromCart } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setTotalPrice: (param) => dispatch(setTotalPrice({ price: param.product, product: param.product }))
+        removeFromCart: (param) => dispatch(removeFromCart({ price: param.price, product: param.product }))
     }
 }
 
 const Cart = (props) => {
     const { id, name, desc, image, price } = props.product;
-    const { onBtnAddClick } = props;
+    const { removeFromCart } = props;
     return (
         <div>
             <div className="cart--view">
@@ -19,7 +19,7 @@ const Cart = (props) => {
                 <div>{name}</div>
                 <div>{price}</div>
                 <div>{desc}</div>
-                <button onClick={() => setTotalPrice({ price: name, product: name })}>Remove from Cart</button>
+                <button onClick={() => removeFromCart({ price: price, product: id })}>Remove from Cart</button>
             </div>
         </div>
     )

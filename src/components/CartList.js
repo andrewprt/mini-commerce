@@ -4,7 +4,7 @@ import Cart from './Cart'
 
 const mapStateToProps = (state) => {
     return {
-        cart: state.addPrice.cart
+        cart: state.editCart.cart
     }
 }
 
@@ -12,14 +12,18 @@ class CartList extends Component {
     render() {
         const { cart } = this.props;
         return (
-            cart.map((product, i) => {
-                return (
-                    <Cart
-                        key={i}
-                        product={product}
-                    />
-                );
-            })
+            cart.length === 0
+                ?
+                "Your cart is empty!"
+                :
+                cart.map((product, i) => {
+                    return (
+                        <Cart
+                            key={i}
+                            product={product}
+                        />
+                    );
+                })
         )
     }
 }

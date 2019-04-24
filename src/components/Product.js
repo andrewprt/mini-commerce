@@ -1,24 +1,35 @@
 import React from 'react'
 import { connect } from 'react-redux';
 import './Product.css'
-import { setTotalPrice } from '../actions';
+import { addToCart } from '../actions';
+
+// const mapStateToProps = (state) => {
+//     return {
+//         loggedIn: state.logging.loggedIn
+//     }
+// }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setTotalPrice: (price, product) => dispatch(setTotalPrice({ price: price, product: product }))
+        addToCart: (price, product) => dispatch(addToCart({ price: price, product: product }))
     }
 }
 
 const Product = (props) => {
-    const { id, name, desc, image, price } = props.product;
-    const { setTotalPrice } = props;
+    const { name, desc, image, price } = props.product;
+    const { addToCart } = props;
+
+    const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
+
     return (
         <div className="product--view">
             <img alt="product" src={image} />
             <div>{name}</div>
             <div>{price}</div>
             <div>{desc}</div>
-            <button onClick={() => setTotalPrice(price, props.product)}>Add to Cart</button>
+            {
+                loggedIn === true ? <button onClick={() => addToCart(price, props.product)}>Add to Cart</button> : null
+            }
         </div>
     )
 }
