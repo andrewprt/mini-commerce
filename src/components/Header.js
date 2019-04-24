@@ -12,13 +12,13 @@ const mapStateToProps = (state) => {
 class Header extends Component {
     login = () => {
         this.props.auth.login();
-        sessionStorage.setItem('loggedIn', true)
+        localStorage.setItem('loggedIn', true)
         // this.props.authenticated(true);
     }
 
     logout = () => {
         this.props.auth.logout();
-        sessionStorage.setItem('loggedIn', false)
+        localStorage.setItem('loggedIn', false)
     }
 
     render() {
