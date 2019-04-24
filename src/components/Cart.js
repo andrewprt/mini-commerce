@@ -5,12 +5,12 @@ import { removeFromCart } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        removeFromCart: (param) => dispatch(removeFromCart({ price: param.price, product: param.product }))
+        removeFromCart: (param) => dispatch(removeFromCart({ price: param.price, product: param.product, idx: param.idx }))
     }
 }
 
 const Cart = (props) => {
-    const { id, name, desc, image, price } = props.product;
+    const { name, desc, image, price, qty } = props.product;
     const { removeFromCart } = props;
     return (
         <div>
@@ -19,7 +19,8 @@ const Cart = (props) => {
                 <div>{name}</div>
                 <div>{price}</div>
                 <div>{desc}</div>
-                <button onClick={() => removeFromCart({ price: price, product: id })}>Remove from Cart</button>
+                <div>Qty : {qty}</div>
+                <button onClick={() => removeFromCart({ price: price, product: props.product, idx: props.idx })}>Remove from Cart</button>
             </div>
         </div>
     )

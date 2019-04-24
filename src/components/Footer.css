@@ -1,0 +1,15 @@
+.footer {
+    background-color: #ffb6c1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer--logo {
+    background-image: url(https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6ki...6CrRJNnRnIwXs1M3EMoAJtlSUrh...Ju8fg9);
+    background-size: cover;
+    background-position: center center;
+    width: 180px;
+    height: 90px;
+}

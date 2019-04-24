@@ -20,6 +20,7 @@ class CartList extends Component {
                     return (
                         <Cart
                             key={i}
+                            idx={i}
                             product={product}
                         />
                     );

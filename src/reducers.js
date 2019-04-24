@@ -11,15 +11,33 @@ const initialPrice = {
 export const editCart = (state = initialPrice, action = {}) => {
     switch (action.type) {
         case ADD_TO_CART:
-            return Object.assign({}, state,
-                { cart: [...state.cart, action.product] },
-                { totalPrice: state.totalPrice + action.payload })
+            const idx = state.cart.findIndex(x => x.id === action.product.id);
+            if (idx > -1) {
+                state.cart[idx].qty++;
+                return Object.assign({}, state,
+                    { cart: [...state.cart] },
+                    { totalPrice: state.totalPrice + action.payload })
+            } else {
+                action.product.qty++;
+                return Object.assign({}, state,
+                    { cart: [...state.cart, action.product] },
+                    { totalPrice: state.totalPrice + action.payload })
+            }
         // { totalPrice: state.cart.reduce((total, value) => { return total + value.price }, 0) })
         case REMOVE_FROM_CART:
-            state.cart.splice(state.cart.findIndex(x => x.id === action.product), 1)
-            return Object.assign({}, state,
-                { cart: [...state.cart] },
-                { totalPrice: state.totalPrice - action.payload })
+            if (action.product.qty > 1) {
+                const idx = action.idx;
+                console.log(action.idx);
+                console.log(idx);
+                return Object.assign({}, state,
+                    { cart: [...state.cart.slice(0, idx), { ...state.cart[idx], qty: state.cart[idx].qty - 1 }, ...state.cart.slice(idx + 1)] },
+                    { totalPrice: state.totalPrice - action.payload })
+            } else {
+                state.cart.splice(state.cart.findIndex(x => x.id === action.product.id), 1)
+                return Object.assign({}, state,
+                    { cart: [...state.cart] },
+                    { totalPrice: state.totalPrice - action.payload })
+            }
         default:
             return state
     }
