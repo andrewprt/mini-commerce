@@ -12,6 +12,10 @@
   .header * {
     margin: 0.5rem 1rem;
   }
+
+  .header *:last-child {
+    margin-right: 1.5rem;
+  }
   
   .logo {
     background-image: url(https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6ki...6CrRdMkR3NwXs1M3EMoAJtlSUrhvtv...Pw7);
@@ -22,7 +26,7 @@
     margin-right:auto;
   }
   
-  .cart {
+  .cart--logo {
     background-image: url(https://cdn2.mageplaza.com/media/shopify_appicons//1faeabde14214dfb782e66a6406c46a9.png);
     background-size: contain;
     background-position: center center;
@@ -42,6 +46,7 @@
   
   .content {
     margin-top: 6rem;
+    min-height: 80vh;
     position: relative;
     background-color: #98ff98;
     display: flex;
@@ -49,6 +54,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-bottom: 10rem; 
   }
   
   .content > div {

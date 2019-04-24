@@ -1,4 +1,4 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const REMOVE_FROM_CART = 'REMOVE_FROM_CART';
 
-// export const LOGIN_LOGOUT = 'LOGIN_LOGOUT';
+export const CHECKOUT = 'CHECKOUT';

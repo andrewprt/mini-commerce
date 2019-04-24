@@ -20,7 +20,7 @@ html {
   position: relative;
   background-color: var(--color-grey-light-1);
   box-shadow: var(--shadow-dark);
-  min-height: 50rem;
+  min-height: 100vh;
 
   display: flex;
   flex-direction: column;

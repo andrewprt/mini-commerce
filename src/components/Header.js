@@ -28,16 +28,16 @@ class Header extends Component {
             <div className="header">
                 <Link to="/" className="logo"></Link>
 
-                <Link to="/cart" className="cart"></Link>
+                <Link to="/cart" className="cart--logo"></Link>
 
                 <div className="price">Rp. {totalPrice}</div>
                 {
                     !isAuthenticated() &&
-                    <button style={{ cursor: 'pointer' }} onClick={this.login}>Log In</button>
+                    <button style={{ cursor: 'pointer' }} onClick={this.login}>Sign In</button>
                 }
                 {
                     isAuthenticated() &&
-                    <button style={{ cursor: 'pointer' }} onClick={this.logout}>Log Out</button>
+                    <button style={{ cursor: 'pointer' }} onClick={this.logout}>Sign Out</button>
                 }
             </div>
         );

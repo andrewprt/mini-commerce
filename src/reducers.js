@@ -1,6 +1,5 @@
 import {
-    ADD_TO_CART, REMOVE_FROM_CART
-    // , LOGIN_LOGOUT
+    ADD_TO_CART, REMOVE_FROM_CART, CHECKOUT
 } from './constants';
 
 const initialPrice = {
@@ -23,7 +22,6 @@ export const editCart = (state = initialPrice, action = {}) => {
                     { cart: [...state.cart, action.product] },
                     { totalPrice: state.totalPrice + action.payload })
             }
-        // { totalPrice: state.cart.reduce((total, value) => { return total + value.price }, 0) })
         case REMOVE_FROM_CART:
             if (action.product.qty > 1) {
                 const idx = action.idx;
@@ -38,22 +36,12 @@ export const editCart = (state = initialPrice, action = {}) => {
                     { cart: [...state.cart] },
                     { totalPrice: state.totalPrice - action.payload })
             }
+        case CHECKOUT:
+            return Object.assign({}, state,
+                { cart: [] },
+                { totalPrice: 0 })
         default:
             return state
     }
 }
 
-// const authentication = {
-//     loggedIn: "bababa"
-// }
-
-// export const logging = (state = authentication, action = {}) => {
-//     switch (action.type) {
-//         case LOGIN_LOGOUT:
-//             console.log(action.payload, "testtttttttttt");
-//             return Object.assign({}, state,
-//                 { loggedIn: "falsee" })
-//         default:
-//             return state
-//     }
-// }
