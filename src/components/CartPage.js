@@ -23,13 +23,6 @@ const mapDispatchToProps = (dispatch) => {
 class CartPage extends React.Component {
     render() {
         const { checkout, totalPrice, cart } = this.props;
-
-        // const message = "Total Price: " + totalPrice + "\n" +
-        //     "\nDetails:" +
-        //     cart.map(item => {
-        //         return "\n" + item.name + " (" + item.qty + ") - " + (item.price * item.qty);
-        //     })
-
         const message = "Total Price: Rp. " + totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         const submit = () => {

@@ -1,3 +1,4 @@
+//products source data
 export const products = [
     {
         id: 1,

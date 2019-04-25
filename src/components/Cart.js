@@ -28,10 +28,10 @@ const Cart = (props) => {
             <img alt="product-cart" src={image} />
             <div className="product--desc">
                 <div>{name}</div>
-                <div>{formatPrice} {eval(qty) > 1 ? `(${formatPriceTotal})` : null}</div>
+                <div>{formatPrice} {parseInt(qty) > 1 ? `(${formatPriceTotal})` : null}</div>
                 <div>Qty : {qty}</div>
                 <div className="btnRmvFromCart"
-                    onClick={() => removeFromCart({ price: price, product: props.product, idx: props.idx })}>
+                    onClick={() => removeFromCart({ product: props.product, idx: props.idx })}>
                 </div>
             </div>
         </div>

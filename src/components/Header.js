@@ -10,10 +10,10 @@ const mapStateToProps = (state) => {
 }
 
 class Header extends Component {
+    //login and logout will setItem loggedIn in localStorage, to be used as condition in Add to Cart & Checkout
     login = () => {
         this.props.auth.login();
-        localStorage.setItem('loggedIn', true)
-        // this.props.authenticated(true);
+        localStorage.setItem('loggedIn', true);
     }
 
     logout = () => {
@@ -25,20 +25,22 @@ class Header extends Component {
         const { totalPrice } = this.props;
         const { isAuthenticated } = this.props.auth;
 
+        //make thousand separators to totalPrice
         const formatPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         return (
             <div className="header">
                 <Link to="/" className="logo"></Link>
-
                 <Link to="/cart" className="cart--logo"><div className="cart--logo_img"></div></Link>
 
                 <div className="price">Rp. {formatPrice}</div>
                 {
+                    //if user isn't logged in yet, Sign In button will show up instead of Sign Out button
                     !isAuthenticated() &&
                     <div className="signButton" onClick={this.login}>Sign In</div>
                 }
                 {
+                    //Sign out button, if clicked will immediately do logout process
                     isAuthenticated() &&
                     <div className="signButton" onClick={this.logout}>Sign Out</div>
                 }

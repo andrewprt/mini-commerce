@@ -3,12 +3,6 @@ import { connect } from 'react-redux';
 import '../styles/Product.css'
 import { addToCart } from '../actions';
 
-// const mapStateToProps = (state) => {
-//     return {
-//         loggedIn: state.logging.loggedIn
-//     }
-// }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         addToCart: (price, product) => dispatch(addToCart({ price: price, product: product }))

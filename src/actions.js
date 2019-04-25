@@ -4,9 +4,9 @@ import {
     CHECKOUT
 } from './constants'
 
-
+//flow : from components file to this file, after this will go to reducers.js
 export const addToCart = (payload) => ({ type: ADD_TO_CART, payload: payload.price, product: payload.product })
 
-export const removeFromCart = (payload) => ({ type: REMOVE_FROM_CART, payload: payload.price, product: payload.product, idx: payload.idx })
+export const removeFromCart = (payload) => ({ type: REMOVE_FROM_CART, product: payload.product, idx: payload.idx })
 
 export const checkout = () => ({ type: CHECKOUT })

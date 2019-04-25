@@ -9,6 +9,7 @@ const initialPrice = {
 
 export const editCart = (state = initialPrice, action = {}) => {
     switch (action.type) {
+        //add to cart will add 1 qty to a product. This will join same products as 1, increases its qty
         case ADD_TO_CART:
             const idx = state.cart.findIndex(x => x.id === action.product.id);
             if (idx > -1) {
@@ -22,20 +23,15 @@ export const editCart = (state = initialPrice, action = {}) => {
                     { cart: [...state.cart, action.product] },
                     { totalPrice: state.totalPrice + action.payload })
             }
+
+        //remove from cart will delete a product from cart, no matter how many qty it has    
         case REMOVE_FROM_CART:
-            // if (action.product.qty > 1) {
-            //     const idx = action.idx;
-            //     console.log(action.idx);
-            //     console.log(idx);
-            //     return Object.assign({}, state,
-            //         { cart: [...state.cart.slice(0, idx), { ...state.cart[idx], qty: state.cart[idx].qty - 1 }, ...state.cart.slice(idx + 1)] },
-            //         { totalPrice: state.totalPrice - action.payload })
-            // } else {
-            state.cart.splice(state.cart.findIndex(x => x.id === action.product.id), 1)
+            state.cart.splice(state.cart.findIndex(x => x.id === action.product.id), 1);
             return Object.assign({}, state,
                 { cart: [...state.cart] },
-                { totalPrice: state.totalPrice - (action.payload * action.product.qty) })
-        // }
+                { totalPrice: state.totalPrice - (action.product.price * action.product.qty) })
+
+        //checkout will just reset cart and totalPrice to 0, as if we do checkout in a real e-commerce
         case CHECKOUT:
             return Object.assign({}, state,
                 { cart: [] },
