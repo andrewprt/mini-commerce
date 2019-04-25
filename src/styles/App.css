@@ -10,6 +10,8 @@
   box-sizing: inherit;
 }
 
+/* box-sizing as border-box is width = width+padding */
+/* font-size 62.5% will be used for base size for rem unit */
 html {
   box-sizing: border-box;
   font-size: 62.5%;
@@ -18,21 +20,30 @@ html {
 .container {
   max-width: 100%;
   position: relative;
-  background-color: var(--color-grey-light-1);
-  box-shadow: var(--shadow-dark);
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
 }
 
-.cart {
-  background-color: #e0ffff;
+.content {
+  margin-top: 6rem;
+  padding-top: 3rem;
+  min-height: 90vh;
+  position: relative;
+  background-image: url(https://www.photohdx.com/images/2016/10/yellow-wood-table-background.jpg);
+  background-size: cover;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
+  /* space-evenly so products will have same spacing */
+  justify-content: space-evenly;
+  align-items: flex-start;
+  padding-bottom: 10rem; 
+}
+
+.content > div {
+  margin: .8rem;
 }
 
 button {

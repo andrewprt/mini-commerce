@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
 
+//get state from reducers.js (redux)
 const mapStateToProps = (state) => {
     return {
         totalPrice: state.editCart.totalPrice

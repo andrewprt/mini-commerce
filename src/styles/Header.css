@@ -1,3 +1,4 @@
+/* header has position fixed so it stays on screen */
 .header {
     background-color: #add8e6;
     position: fixed;
@@ -14,8 +15,9 @@
     margin: 0.5rem 1rem;
   }
 
+  /* only for last-child of header */
   .header *:last-child {
-    margin-right: 1.5rem;
+    margin-right: 2rem;
   }
   
   .logo {
@@ -24,7 +26,8 @@
     background-position: center center;
     width: 160px;
     height: 40px;
-    margin-right:auto;
+    /* margin-right: auto to make the logo go to utmost left */
+    margin-right: auto;
   }
   
   .cart--logo {
@@ -37,7 +40,8 @@
     border-radius: 15%;
     transition: box-shadow .7s;
   }
-  
+
+  /* hover effects for cart button */
   .cart--logo:hover {
     box-shadow: 0px 0px 5px 5px rgb(152, 255, 152,1);
     transition: box-shadow .7s;
@@ -57,27 +61,11 @@
     opacity: .6;
   }
 
+  /* hover effects for signin/signout button */
   .signButton:hover {
     cursor: pointer;
     opacity: 1;
     transition: opacity 1s;
   }
 
-  .content {
-    margin-top: 6rem;
-    padding-top: 3rem;
-    min-height: 90vh;
-    position: relative;
-    background-image: url(https://www.photohdx.com/images/2016/10/yellow-wood-table-background.jpg);
-    background-size: cover;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-    padding-bottom: 10rem; 
-  }
   
-  .content > div {
-    margin: .8rem;
-  }

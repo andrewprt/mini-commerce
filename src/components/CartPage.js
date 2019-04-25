@@ -4,9 +4,11 @@ import Header from './Header'
 import Footer from './Footer'
 import { connect } from 'react-redux';
 import { checkout } from '../actions';
+//uses 'react-confirm-alert' package to make a confirmation window
 import { confirmAlert } from 'react-confirm-alert';
 import '../styles/react-confirm-alert.css';
 
+//get state from reducers.js (redux)
 const mapStateToProps = (state) => {
     return {
         totalPrice: state.editCart.totalPrice,
@@ -14,6 +16,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+//call action in actions.js (redux)
 const mapDispatchToProps = (dispatch) => {
     return {
         checkout: (param) => dispatch(checkout({}))
@@ -25,6 +28,8 @@ class CartPage extends React.Component {
         const { checkout, totalPrice, cart } = this.props;
         const message = "Total Price: Rp. " + totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
+        //confirmation window which will appear if user wants to checkout
+        //this is a customized UI
         const submit = () => {
             confirmAlert({
                 customUI: ({ onClose }) => {
@@ -49,7 +54,7 @@ class CartPage extends React.Component {
             <div className="container">
                 <Header auth={this.props.auth} />
                 <div className="cart--content">
-
+                    {/* show checkout button if only the cart isn't empty */}
                     {
                         cart.length > 0
                             ?
@@ -59,6 +64,7 @@ class CartPage extends React.Component {
                     }
                     <div className="cart--list">
                         {
+                            //show image of "empty cart" if there's no product in cart
                             cart.length > 0
                                 ?
                                 <CartList />
@@ -73,4 +79,5 @@ class CartPage extends React.Component {
     }
 }
 
+//connect mapStateToProps and mapDispatchToProps to actions.js and reducers.js
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

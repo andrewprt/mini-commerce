@@ -14,6 +14,7 @@
     transition: all .3s;
 }
 
+/* add hover effects for each items */
 .product--view:hover {
     box-shadow: 1px .5px 10px 5px rgb(152, 255, 152,1);
     transform: translateY(-1px);
@@ -36,10 +37,12 @@
     position: relative;
 }
 
+/* except last child, it means except the addToCart button */
 .product--desc div:not(:last-child) {
     padding-right: 2.5rem;
 }
 
+/* position absolute so this will not take space on top of carts */
 .btnAddToCart {
     overflow: hidden;
     position: relative;
@@ -57,6 +60,7 @@
     transition: opacity .5s;
 }
 
+/* add hover effects for addToCart button */
 .btnAddToCart:hover {
     opacity: 1;
     transition: opacity .5s;
@@ -69,13 +73,6 @@
     max-width: 20rem;
     min-height: 80vh;
     padding-bottom: 10rem; 
-
-    -webkit-animation: all 3s forwards;
-    -moz-animation: all 3s forwards;
-    -o-animation: all 3s forwards;
-    animation: all 3s forwards;
-
-    transition: all 3s;
 }
 
 .cart--view img {
@@ -119,6 +116,7 @@
     opacity: .5;
 }
 
+/* add hover effects for removeFromCart button */
 .btnRmvFromCart:hover {
     opacity: 1;
     transition: opacity .5s;
@@ -126,7 +124,6 @@
 
 .cart--empty {
     background-image: url(https://iticsystem.com/img/empty-cart.png);
-    /* background-image: url(https://klipplastik.co.id/assets/img/empty_cart.png); */
     min-height: 80vh;
     width: 45rem;
     background-size: contain;
@@ -140,7 +137,6 @@
 .cart--checkout {
     position: absolute;
     margin-top: 2rem;
-    color: green;
     top: 0;
     right: 0;
     width: 18rem;
@@ -151,47 +147,13 @@
     background-position: center center;
     cursor: pointer;
     opacity: .6;
-
     align-self: flex-end;
+    transition: all .5s;
 }
 
+/* add hover effects for checkout button */
 .cart--checkout:hover {
     opacity: 1;
     transform: translateY(-1px);
+    transition: all .5s;
 }
-
-@-webkit-keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  @-moz-keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  @-o-keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }
-  
-  @keyframes fadeOut {
-    from {
-      opacity: 1;
-    }
-    to {
-      opacity: 0;
-    }
-  }

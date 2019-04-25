@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import '../styles/Footer.css'
 import { Link } from 'react-router-dom';
 
+//logo can be clicked to go to homepage
 class Footer extends Component {
     render() {
         return (
