@@ -1,10 +1,197 @@
 .product--view {
+    background:linear-gradient(to right bottom, #c4d7e6 0, #c4d7e6 33%, #66a5ad 66%, #98ff98 100%);
+    border: 1px solid #98ff98;
+    box-shadow: 1px .5px 5px 1px rgb(0,0,0,1);
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 1.2rem;
     display:flex;
     flex-direction: column;
+    align-items: center;
     flex-grow: none;
-    max-width: 20rem;
+    width: 25rem;
+    height: 20%;
+    transition: all .3s;
+}
+
+.product--view:hover {
+    box-shadow: 1px .5px 10px 5px rgb(152, 255, 152,1);
+    transform: translateY(-1px);
+    transition: all .3s;
 }
 
 .product--view img {
     height: 20rem;
+    margin-bottom: 1rem;
+    box-shadow: 1px .5px 1px .5px rgb(0,0,0,1);
 }
+
+.product--desc {
+    line-height: 2rem; 
+    width: 100%;
+    font-size: 1.2rem;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.product--desc div:not(:last-child) {
+    padding-right: 2.5rem;
+}
+
+.btnAddToCart {
+    overflow: hidden;
+    position: relative;
+    margin-left: auto;
+    background-image: url(https://cdn.iconscout.com/icon/premium/png-256-thumb/add-into-cart-1-567407.png);
+    background-position: center;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: .5;
+    transition: opacity .5s;
+}
+
+.btnAddToCart:hover {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.cart--view {
+    display:flex;
+    flex-direction: column;
+    flex-grow: none;
+    max-width: 20rem;
+    min-height: 80vh;
+    padding-bottom: 10rem; 
+
+    -webkit-animation: all 3s forwards;
+    -moz-animation: all 3s forwards;
+    -o-animation: all 3s forwards;
+    animation: all 3s forwards;
+
+    transition: all 3s;
+}
+
+.cart--view img {
+    height: 20rem;
+}
+
+.cart--content {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin-top: 6rem;
+    min-height: 80vh;
+    position: relative;
+    background: linear-gradient(to left bottom, rgb(0, 255, 255, .8), #98ff98);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.cart--list {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.btnRmvFromCart {
+    overflow: hidden;
+    position: relative;
+    margin-left: auto;
+    background-image: url(http://icons.iconarchive.com/icons/iconsmind/outline/256/Remove-Cart-icon.png);
+    background-position: center;
+    background-size: cover;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    opacity: .5;
+}
+
+.btnRmvFromCart:hover {
+    opacity: 1;
+    transition: opacity .5s;
+}
+
+.cart--empty {
+    background-image: url(https://iticsystem.com/img/empty-cart.png);
+    /* background-image: url(https://klipplastik.co.id/assets/img/empty_cart.png); */
+    min-height: 80vh;
+    width: 45rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    padding-bottom: 10rem; 
+    margin: 0 auto;
+    margin-top: -10rem;
+}
+
+.cart--checkout {
+    position: absolute;
+    margin-top: 2rem;
+    color: green;
+    top: 0;
+    right: 0;
+    width: 18rem;
+    height: 12rem;
+    background-image: url(https://i.dlpng.com/static/png/475565_thumb.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    cursor: pointer;
+    opacity: .6;
+
+    align-self: flex-end;
+}
+
+.cart--checkout:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+@-webkit-keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @-moz-keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @-o-keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }

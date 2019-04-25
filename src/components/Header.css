@@ -7,6 +7,7 @@
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    box-shadow: 1px .1px 45px 10px rgb(0,0,0,1);
   }
   
   .header * {
@@ -33,10 +34,17 @@
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
-    border-radius: 50%;
+    border-radius: 15%;
+    transition: box-shadow .7s;
   }
   
+  .cart--logo:hover {
+    box-shadow: 0px 0px 5px 5px rgb(152, 255, 152,1);
+    transition: box-shadow .7s;
+  }
+
   .price {
+    font-size: 1.2rem;
     height: 32px;
     line-height: 32px;
     padding: 0 2rem 0 2rem;
@@ -44,16 +52,28 @@
     border-right: 1px solid gray;
   }
   
+  .signButton {
+    font-size: 1.2rem;
+    opacity: .6;
+  }
+
+  .signButton:hover {
+    cursor: pointer;
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
   .content {
     margin-top: 6rem;
     padding-top: 3rem;
     min-height: 90vh;
     position: relative;
-    background-color: #98ff98;
+    background-image: url(https://www.photohdx.com/images/2016/10/yellow-wood-table-background.jpg);
+    background-size: cover;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: flex-start;
     padding-bottom: 10rem; 
   }

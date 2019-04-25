@@ -24,20 +24,23 @@ class Header extends Component {
     render() {
         const { totalPrice } = this.props;
         const { isAuthenticated } = this.props.auth;
+
+        const formatPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
         return (
             <div className="header">
                 <Link to="/" className="logo"></Link>
 
-                <Link to="/cart" className="cart--logo"></Link>
+                <Link to="/cart" className="cart--logo"><div className="cart--logo_img"></div></Link>
 
-                <div className="price">Rp. {totalPrice}</div>
+                <div className="price">Rp. {formatPrice}</div>
                 {
                     !isAuthenticated() &&
-                    <button style={{ cursor: 'pointer' }} onClick={this.login}>Sign In</button>
+                    <div className="signButton" onClick={this.login}>Sign In</div>
                 }
                 {
                     isAuthenticated() &&
-                    <button style={{ cursor: 'pointer' }} onClick={this.logout}>Sign Out</button>
+                    <div className="signButton" onClick={this.logout}>Sign Out</div>
                 }
             </div>
         );

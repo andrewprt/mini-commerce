@@ -21,15 +21,20 @@ const Product = (props) => {
 
     const loggedIn = JSON.parse(localStorage.getItem("loggedIn"));
 
+    const formatPrice = price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
     return (
         <div className="product--view">
             <img alt="product" src={image} />
-            <div>{name}</div>
-            <div>{price}</div>
-            <div>{desc}</div>
-            {
-                loggedIn === true ? <button onClick={() => addToCart(price, props.product)}>Add to Cart</button> : null
-            }
+            <div className="product--desc">
+                <div>{name}</div>
+                <div>Rp. {formatPrice}</div>
+                <div>{desc}</div>
+                {
+                    loggedIn === true ? <div className="btnAddToCart"
+                        onClick={() => addToCart(price, props.product)}>&nbsp;</div> : null
+                }
+            </div>
         </div>
     )
 }

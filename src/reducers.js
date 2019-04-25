@@ -23,19 +23,19 @@ export const editCart = (state = initialPrice, action = {}) => {
                     { totalPrice: state.totalPrice + action.payload })
             }
         case REMOVE_FROM_CART:
-            if (action.product.qty > 1) {
-                const idx = action.idx;
-                console.log(action.idx);
-                console.log(idx);
-                return Object.assign({}, state,
-                    { cart: [...state.cart.slice(0, idx), { ...state.cart[idx], qty: state.cart[idx].qty - 1 }, ...state.cart.slice(idx + 1)] },
-                    { totalPrice: state.totalPrice - action.payload })
-            } else {
-                state.cart.splice(state.cart.findIndex(x => x.id === action.product.id), 1)
-                return Object.assign({}, state,
-                    { cart: [...state.cart] },
-                    { totalPrice: state.totalPrice - action.payload })
-            }
+            // if (action.product.qty > 1) {
+            //     const idx = action.idx;
+            //     console.log(action.idx);
+            //     console.log(idx);
+            //     return Object.assign({}, state,
+            //         { cart: [...state.cart.slice(0, idx), { ...state.cart[idx], qty: state.cart[idx].qty - 1 }, ...state.cart.slice(idx + 1)] },
+            //         { totalPrice: state.totalPrice - action.payload })
+            // } else {
+            state.cart.splice(state.cart.findIndex(x => x.id === action.product.id), 1)
+            return Object.assign({}, state,
+                { cart: [...state.cart] },
+                { totalPrice: state.totalPrice - (action.payload * action.product.qty) })
+        // }
         case CHECKOUT:
             return Object.assign({}, state,
                 { cart: [] },

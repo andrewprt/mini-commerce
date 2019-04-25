@@ -31,7 +31,7 @@ class CartPage extends React.Component {
         //         return "\n" + item.name + " (" + item.qty + ") - " + (item.price * item.qty);
         //     })
 
-        const message = "Total Price: Rp. " + totalPrice;
+        const message = "Total Price: Rp. " + totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         const submit = () => {
             confirmAlert({
@@ -61,7 +61,7 @@ class CartPage extends React.Component {
                     {
                         cart.length > 0
                             ?
-                            <button className="cart--checkout" onClick={submit}>Checkout</button>
+                            <div className="cart--checkout" onClick={submit}></div>
                             :
                             <br />
                     }

@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import './Cart.css'
+import './Product.css'
 import { removeFromCart } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {
@@ -10,17 +10,29 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 const Cart = (props) => {
-    const { name, desc, image, price, qty } = props.product;
+    const { name, image, price, qty } = props.product;
     const { removeFromCart } = props;
+    const styles = {
+        marginRight: "1.5rem"
+    }
+
+    function formatMoney(price) {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    const formatPrice = formatMoney(price);
+    const formatPriceTotal = formatMoney(price * qty);
+
     return (
-        <div>
-            <div className="cart--view">
-                <img alt="product-cart" src={image} />
+        <div className="product--view" style={styles}>
+            <img alt="product-cart" src={image} />
+            <div className="product--desc">
                 <div>{name}</div>
-                <div>{price}</div>
-                <div>{desc}</div>
+                <div>{formatPrice} {eval(qty) > 1 ? `(${formatPriceTotal})` : null}</div>
                 <div>Qty : {qty}</div>
-                <button onClick={() => removeFromCart({ price: price, product: props.product, idx: props.idx })}>Remove from Cart</button>
+                <div className="btnRmvFromCart"
+                    onClick={() => removeFromCart({ price: price, product: props.product, idx: props.idx })}>
+                </div>
             </div>
         </div>
     )
