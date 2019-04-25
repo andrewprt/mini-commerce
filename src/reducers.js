@@ -1,13 +1,13 @@
 import {
-    ADD_TO_CART, REMOVE_FROM_CART, CHECKOUT
+    ADD_TO_CART, REMOVE_FROM_CART, CHECKOUT, SEARCH
 } from './constants';
 
-const initialPrice = {
+const states = {
     totalPrice: 0,
     cart: []
 }
 
-export const editCart = (state = initialPrice, action = {}) => {
+export const editCart = (state = states, action = {}) => {
     switch (action.type) {
         //add to cart will add 1 qty to a product. This will join same products as 1, increases its qty
         case ADD_TO_CART:
@@ -36,6 +36,21 @@ export const editCart = (state = initialPrice, action = {}) => {
             return Object.assign({}, state,
                 { cart: [] },
                 { totalPrice: 0 })
+        default:
+            return state
+    }
+}
+
+const searchField = {
+    searchField: ''
+}
+
+export const searchProduct = (state = searchField, action = {}) => {
+    switch (action.type) {
+        //set searchField state
+        case SEARCH:
+            return Object.assign({}, state,
+                { searchField: action.search })
         default:
             return state
     }

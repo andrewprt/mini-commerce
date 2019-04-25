@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const Cart = (props) => {
     //we get props.product from CartList component
-    const { name, image, price, qty } = props.product;
+    const { author, image, price, qty } = props.product;
     //get removeFromCart from mapDispatchToProps
     const { removeFromCart } = props;
 
@@ -34,7 +34,7 @@ const Cart = (props) => {
         <div className="product--view" style={styles}>
             <img alt="product-cart" src={image} />
             <div className="product--desc">
-                <div>{name}</div>
+                <div>{author}</div>
                 {/* if product qty is more than 1, total price for that product will be displayed */}
                 <div>{formatPrice} {parseInt(qty) > 1 ? `(${formatPriceTotal})` : null}</div>
                 <div>Qty : {qty}</div>

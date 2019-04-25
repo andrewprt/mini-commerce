@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/Header.css';
+import SearchField from './SearchField';
 
 //get state from reducers.js (redux)
 const mapStateToProps = (state) => {
@@ -26,12 +27,17 @@ class Header extends Component {
         const { totalPrice } = this.props;
         const { isAuthenticated } = this.props.auth;
 
+        const disabled = window.location.href.search("cart") > -1 ? "disabled" : null;
+
         //make thousand separators to totalPrice
         const formatPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
         return (
             <div className="header">
-                <Link to="/" className="logo"></Link>
+                <div className="header--left">
+                    <Link to="/" className="logo"></Link>
+                    <SearchField disabled={disabled} />
+                </div>
                 <Link to="/cart" className="cart--logo"><div className="cart--logo_img"></div></Link>
 
                 <div className="price">Rp. {formatPrice}</div>

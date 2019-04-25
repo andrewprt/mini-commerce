@@ -53,26 +53,21 @@ class CartPage extends React.Component {
         return (
             <div className="container">
                 <Header auth={this.props.auth} />
-                <div className="cart--content">
-                    {/* show checkout button if only the cart isn't empty */}
-                    {
-                        cart.length > 0
-                            ?
+                {
+                    cart.length > 0
+                        ?
+                        <div className="cart--content">
+                            {/* show checkout button if only the cart isn't empty */}
                             <div className="cart--checkout" onClick={submit}></div>
-                            :
-                            <br />
-                    }
-                    <div className="cart--list">
-                        {
-                            //show image of "empty cart" if there's no product in cart
-                            cart.length > 0
-                                ?
+                            <div className="cart--list">
                                 <CartList />
-                                :
-                                <div className="cart--empty"></div>
-                        }
-                    </div>
-                </div>
+                            </div>
+                        </div>
+                        :
+                        <div className="cart--empty">
+                            <div className="cart--empty_img"></div>
+                        </div>
+                }
                 <Footer />
             </div>
         )

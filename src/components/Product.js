@@ -12,7 +12,7 @@ const mapDispatchToProps = (dispatch) => {
 
 const Product = (props) => {
     //we get props.product from ProductList component
-    const { name, desc, image, price } = props.product;
+    const { author, desc, image, price } = props.product;
     //get addToCart from mapDispatchToProps
     const { addToCart } = props;
 
@@ -25,7 +25,7 @@ const Product = (props) => {
         <div className="product--view">
             <img alt="product" src={image} />
             <div className="product--desc">
-                <div>{name}</div>
+                <div>{author}</div>
                 <div>Rp. {formatPrice}</div>
                 <div>{desc}</div>
                 {/* user can only addToCart if logged in */}

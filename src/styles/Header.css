@@ -20,16 +20,36 @@
     margin-right: 2rem;
   }
   
+  .header--left {
+    /* margin-right: auto to make the logo go to utmost left */
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex: 1;
+  }
+
   .logo {
     background-image: url(https://www.freelogoservices.com/api/main/images/1j+ojl1FOMkX9WypfBe43D6ki...6CrRdMkR3NwXs1M3EMoAJtlSUrhvtv...Pw7);
     background-size: cover;
     background-position: center center;
-    width: 160px;
-    height: 40px;
-    /* margin-right: auto to make the logo go to utmost left */
-    margin-right: auto;
+    width: 16rem;
+    height: 4rem;
   }
   
+  .searchfield {
+    position: relative;
+    flex: 1;
+  }
+
+  .searchfield input {
+    width: 100%;
+    height: 3rem;
+    padding-left: 1rem;
+    background-color: #3CBC8D;
+    color: white;
+  }
+
   .cart--logo {
     background-image: url(https://cdn2.mageplaza.com/media/shopify_appicons//1faeabde14214dfb782e66a6406c46a9.png);
     background-size: contain;
@@ -46,7 +66,7 @@
     box-shadow: 0px 0px 5px 5px rgb(152, 255, 152,1);
     transition: box-shadow .7s;
   }
-
+  
   .price {
     font-size: 1.2rem;
     height: 32px;
