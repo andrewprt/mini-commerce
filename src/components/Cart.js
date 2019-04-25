@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import './Product.css'
+import '../styles/Product.css'
 import { removeFromCart } from '../actions';
 
 const mapDispatchToProps = (dispatch) => {

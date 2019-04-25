@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
-import './index.css';
+import './styles/index.css';
 import * as serviceWorker from './serviceWorker';
 import { editCart } from './reducers'
 

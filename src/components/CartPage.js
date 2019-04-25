@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { checkout } from '../actions';
 import { confirmAlert } from 'react-confirm-alert';
 import '../styles/react-confirm-alert.css';
-import './Cart.css'
 
 const mapStateToProps = (state) => {
     return {
